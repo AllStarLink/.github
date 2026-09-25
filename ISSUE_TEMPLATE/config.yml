@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security vulnerability
+    url: https://github.com/AllStarLink/.github/security/advisories/new
+    about: Security reports must not be filed as public issues. Report them privately here.
+  - name: Support questions
+    url: https://community.allstarlink.org
+    about: Ask questions and get help from the AllStarLink community forum.
+  - name: AI Use Practice (ASL003)
+    url: https://allstarlink.org/ai/
+    about: How AI tools may be used in AllStarLink contributions, issues, and reports.

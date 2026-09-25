@@ -1,0 +1,69 @@
+name: Bug report
+description: Report a problem you have personally experienced or reproduced
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a problem.
+
+        **Security vulnerabilities must not be reported here.** Use the
+        [private security reporting channel](https://github.com/AllStarLink/.github/security/advisories/new).
+
+        For support questions, please use the [community forum](https://community.allstarlink.org).
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the problem clearly and concisely.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: The exact steps that trigger the problem.
+      placeholder: |
+        1. ...
+        2. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Version and environment
+      description: AllStarLink and package versions, OS, hardware, and anything else relevant.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs and additional context
+      description: Relevant log output or screenshots. Remove any secrets, credentials, or personal information first.
+      render: shell
+  - type: dropdown
+    id: ai-use
+    attributes:
+      label: Did you use AI tools to write this report?
+      options:
+        - "No"
+        - Yes, for wording or editing only
+        - Yes, substantially
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      options:
+        - label: I have personally experienced or reproduced this problem
+          required: true
+        - label: I have read the [AI Use Practice (ASL003)](https://allstarlink.org/ai/) and take responsibility for this report
+          required: true
