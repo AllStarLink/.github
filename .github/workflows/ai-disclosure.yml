@@ -27,8 +27,9 @@ jobs:
             const LABEL = 'ai-assisted';
 
             const BOXES = {
-              none: /^no material ai involvement/i,
-              material: /^material ai involvement/i,
+              none: /^no ai use of/i,
+              some: /^some ai involvement/i,
+              heavy: /^heavy ai involvement/i,
               reviewed: /^i have reviewed every line/i,
               tested: /^i have built, run, and tested/i,
               license: /^to my knowledge, this contribution does not violate any license/i,
@@ -42,7 +43,7 @@ jobs:
             };
 
             function parseBody(body) {
-              const result = { ok: false, errors: [], material: false, checked: {} };
+              const result = { ok: false, errors: [], material: false, level: null, checked: {} };
               const text = (body || '').replace(/<!--[\s\S]*?-->/g, '');
               if (!text.trim()) {
                 result.errors.push('The pull request description is empty. Use the pull request template.');
@@ -60,13 +61,16 @@ jobs:
                   }
                 }
               }
-              const disclosure = [result.checked.none, result.checked.material].filter(Boolean).length;
-              if (!seen.none || !seen.material) {
+              const levels = ['none', 'some', 'heavy'];
+              const disclosure = levels.filter((k) => result.checked[k]);
+              if (!levels.every((k) => seen[k])) {
                 result.errors.push('The AI Use Disclosure checkboxes are missing. Restore them from the pull request template.');
-              } else if (disclosure !== 1) {
-                result.errors.push(disclosure === 0
-                  ? 'Check exactly one AI Use Disclosure box; neither is checked.'
-                  : 'Check exactly one AI Use Disclosure box; both are checked.');
+              } else if (disclosure.length !== 1) {
+                result.errors.push(disclosure.length === 0
+                  ? 'Check exactly one AI Use Disclosure box; none is checked.'
+                  : 'Check exactly one AI Use Disclosure box; more than one is checked.');
+              } else {
+                result.level = disclosure[0];
               }
               for (const [key, label] of Object.entries(ATTESTATIONS)) {
                 if (!result.checked[key]) {
@@ -75,7 +79,7 @@ jobs:
                     : `Contributor Attestation is missing: ${label}. Restore it from the pull request template.`);
                 }
               }
-              result.material = result.checked.material;
+              result.material = result.checked.some || result.checked.heavy;
               result.ok = result.errors.length === 0;
               return result;
             }
@@ -107,7 +111,7 @@ jobs:
               try {
                 await github.rest.issues.createLabel({
                   owner, repo, name: LABEL, color: 'ededed',
-                  description: 'Material AI involvement disclosed per ASL003',
+                  description: 'AI involvement disclosed per ASL003',
                 });
               } catch (err) {
                 if (err.status !== 422) throw err;
@@ -129,7 +133,7 @@ jobs:
               .addHeading('AI disclosure (ASL003)', 2)
               .addList([
                 `Disclosure and attestation: ${parsed.ok ? 'complete' : 'incomplete'}`,
-                `Material AI involvement checked: ${parsed.material ? 'yes' : 'no'}`,
+                `AI involvement checked: ${parsed.level || 'not determined'}`,
                 `Commits scanned: ${commits.length}`,
                 `Commits with an Assisted-by trailer: ${trailerCommits.length}` +
                   (trailerCommits.length ? ` (${trailerCommits.join(', ')})` : ''),

@@ -16,7 +16,7 @@ defend.
 - **No unattended actions.** Never open issues, post comments, submit pull
   requests, or send messages to project channels without a human reviewing the
   content first. Prepare drafts for the human instead.
-- **Attribution.** When creating commits with material AI involvement, add this
+- **Attribution.** When creating commits with any AI involvement, add this
   trailer:
 
   ```

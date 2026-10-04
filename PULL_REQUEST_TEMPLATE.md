@@ -1,11 +1,22 @@
-<!-- Describe what this change does and why. Link related issues. -->
+Replace this with your PR request information
+
+---
+
+Don't change anything after this except to check the boxes
+
+---
 
 ## AI Use Disclosure ([ASL003](https://allstarlink.org/ai/))
-*Check exactly ONE of the first two boxes.*
-- [ ] No material AI involvement (none, or only trivial use such as autocomplete, spell/grammar check, or translation)
-- [ ] Material AI involvement (significant generated code/text, or AI used to find an issue or design the approach). Commits include an `Assisted-by:` trailer, or tools are listed below.
+*Check exactly ONE of the first three boxes.*
+- [ ] No AI use of *any kind at all*
+- [ ] Some AI involvement (AI-enabled IDE/development environment, some
+code generation, AI-assisted debugging). Commits **MUST** include
+an `Assisted-by:` trailer and tools are listed next.
+- [ ] Heavy AI involvement (more than half of the PR is AI-generated code, AI
+performed engineering or analysis of problems/solutions, etc.) Commits **MUST**
+include an `Assisted-by:` trailer and the tools are listed next.
 
-Tools used (if material):
+AI tools used:
 
 ## Contributor Attestation
 *Check ALL FOUR boxes.*

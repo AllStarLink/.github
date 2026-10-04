@@ -21,8 +21,8 @@ tested it, and be able to explain and defend it in review.
 
 You're welcome to resubmit once you've gone through the change line by line and
 tested it. Please fill out the AI Use Disclosure and Contributor Attestation
-sections of the pull request template. If AI involvement was material, an
-`Assisted-by:` commit trailer is appreciated. If anything in the policy is
+sections of the pull request template. If AI was involved at all, your commits
+must include an `Assisted-by:` trailer. If anything in the policy is
 unclear, just ask and we'll help.
 ```
 

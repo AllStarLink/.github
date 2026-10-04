@@ -17,9 +17,9 @@ policy is [ASL003 - AI Use Practice](https://allstarlink.org/ai/)
 ([canonical text](https://github.com/AllStarLink/Standards/blob/main/ASL003-AI_Use_Practice.md)).
 Please read it; this section is only a summary.
 
-- **Disclosure.** When AI involvement is material, for example a significant
-  portion of the code or text was generated, or AI was used to find an issue or
-  design the approach, add a commit trailer in this format:
+- **Disclosure.** When there is any AI involvement, for example an AI-enabled
+  IDE or development environment, some code generation, or AI-assisted
+  debugging, add a commit trailer in this format:
 
   ```
   Assisted-by: <tool name> <model or version>
