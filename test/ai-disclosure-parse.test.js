@@ -13,7 +13,7 @@ const src = m[1].split('\n').map((l) => l.replace(/^ {12}/, '')).join('\n');
 const { parseBody, hasAssistedByTrailer } = new Function(`${src}\nreturn { parseBody, hasAssistedByTrailer };`)();
 
 const NONE = 'No AI use of *any kind at all*';
-const SOME = 'Some AI involvement (AI-enabled IDE/development environment, some\ncode generation, AI-assisted debugging). Commits **MUST** include\nan `Assisted-by:` trailer and tools are listed next.';
+const SOME = 'Some AI involvement (AI-enabled IDE/development environment, some\ncode generation, AI-assisted analysis, AI-assisted debugging). Commits **MUST** include\nan `Assisted-by:` trailer and tools are listed next.';
 const HEAVY = 'Heavy AI involvement (more than half of the PR is AI-generated code, AI\nperformed engineering or analysis of problems/solutions, etc.) Commits **MUST**\ninclude an `Assisted-by:` trailer and the tools are listed next.';
 const ATT = [
   'I have reviewed every line of this change, understand it, and can explain and defend it in review without deferring to a tool',

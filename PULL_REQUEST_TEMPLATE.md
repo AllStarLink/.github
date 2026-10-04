@@ -10,7 +10,7 @@ Don't change anything after this except to check the boxes
 *Check exactly ONE of the first three boxes.*
 - [ ] No AI use of *any kind at all*
 - [ ] Some AI involvement (AI-enabled IDE/development environment, some
-code generation, AI-assisted debugging). Commits **MUST** include
+code generation, AI-assisted analysis, AI-assisted debugging). Commits **MUST** include
 an `Assisted-by:` trailer and tools are listed next.
 - [ ] Heavy AI involvement (more than half of the PR is AI-generated code, AI
 performed engineering or analysis of problems/solutions, etc.) Commits **MUST**

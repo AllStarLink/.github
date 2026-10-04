@@ -18,8 +18,8 @@ policy is [ASL003 - AI Use Practice](https://allstarlink.org/ai/)
 Please read it; this section is only a summary.
 
 - **Disclosure.** When there is any AI involvement, for example an AI-enabled
-  IDE or development environment, some code generation, or AI-assisted
-  debugging, add a commit trailer in this format:
+  IDE or development environment, some code generation, AI-assisted analysis,
+  or AI-assisted debugging, add a commit trailer in this format:
 
   ```
   Assisted-by: <tool name> <model or version>
