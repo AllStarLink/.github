@@ -96,7 +96,13 @@ jobs:
               return;
             }
 
-            const parsed = parseBody(pr.body);
+            // Fetch the current body rather than using the event payload, so
+            // "Re-run jobs" picks up description edits. Rulesets only trigger
+            // on opened/synchronize/reopened, never on edited.
+            const { data: current } = await github.rest.pulls.get({
+              owner, repo, pull_number: pr.number,
+            });
+            const parsed = parseBody(current.body);
 
             const commits = await github.paginate(github.rest.pulls.listCommits, {
               owner, repo, pull_number: pr.number, per_page: 100,
