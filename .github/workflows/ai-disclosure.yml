@@ -63,7 +63,9 @@ jobs:
               }
               const levels = ['none', 'some', 'heavy'];
               const disclosure = levels.filter((k) => result.checked[k]);
-              if (!levels.every((k) => seen[k])) {
+              // The unchecked options may be deleted so GitHub's task count
+              // shows complete; only the checked one has to remain.
+              if (!levels.some((k) => seen[k])) {
                 result.errors.push('The AI Use Disclosure checkboxes are missing. Restore them from the pull request template.');
               } else if (disclosure.length !== 1) {
                 result.errors.push(disclosure.length === 0

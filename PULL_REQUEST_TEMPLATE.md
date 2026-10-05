@@ -2,12 +2,13 @@ Replace this with your PR request information
 
 ---
 
-Don't change anything after this except to check the boxes
+Don't change anything after this except to check the boxes and delete the
+unchecked AI Use Disclosure options
 
 ---
 
 ## AI Use Disclosure ([ASL003](https://allstarlink.org/ai/))
-*Check exactly ONE of the first three boxes.*
+*Check exactly ONE of the first three boxes, then delete the other two.*
 - [ ] No AI use of *any kind at all*
 - [ ] Some AI involvement (AI-enabled IDE/development environment, some
 code generation, AI-assisted analysis, AI-assisted debugging). Commits **MUST** include

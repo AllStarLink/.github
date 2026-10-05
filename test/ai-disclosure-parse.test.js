@@ -25,9 +25,10 @@ const box = (on, label, mark = 'x') => `- [${on ? mark : ' '}] ${label}`;
 const build = ({ none = false, some = false, heavy = false, att = [true, true, true, true], mark = 'x', sep = '\n' } = {}) =>
   [
     'Did a thing.', '', '---', '',
-    "Don't change anything after this except to check the boxes", '', '---', '',
+    "Don't change anything after this except to check the boxes and delete the",
+    'unchecked AI Use Disclosure options', '', '---', '',
     '## AI Use Disclosure ([ASL003](https://allstarlink.org/ai/))',
-    '*Check exactly ONE of the first three boxes.*',
+    '*Check exactly ONE of the first three boxes, then delete the other two.*',
     box(none, NONE, mark), box(some, SOME, mark), box(heavy, HEAVY, mark), '',
     'AI tools used:', '',
     '## Contributor Attestation',
@@ -78,9 +79,29 @@ test('one disclosure box plus all attestations passes', () => {
   }
 });
 
-test('missing disclosure box fails with a restore message', () => {
+// Removes the unchecked disclosure boxes, as contributors are told to do.
+const dropUnchecked = (body) =>
+  body.replace(/^- \[ \] (No AI use|Some AI involvement|Heavy AI involvement).*$/gm, '');
+
+test('unchecked disclosure boxes may be deleted', () => {
+  for (const [level, material] of [['none', false], ['some', true], ['heavy', true]]) {
+    const r = parseBody(dropUnchecked(build({ [level]: true })));
+    assert.equal(r.ok, true, `${level}: ${r.errors.join('; ')}`);
+    assert.equal(r.level, level);
+    assert.equal(r.material, material, level);
+  }
+});
+
+test('deleting only some unchecked disclosure boxes passes', () => {
   const r = parseBody(build({ some: true }).replace(/^- \[ \] Heavy AI involvement.*$/m, ''));
+  assert.equal(r.ok, true, r.errors.join('; '));
+  assert.equal(r.level, 'some');
+});
+
+test('all disclosure boxes deleted fails with a restore message', () => {
+  const r = parseBody(dropUnchecked(build()));
   assert.equal(r.ok, false);
+  assert.equal(r.errors.length, 1);
   assert.match(r.errors[0], /checkboxes are missing/);
 });
 
