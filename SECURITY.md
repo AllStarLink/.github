@@ -33,5 +33,5 @@ review.
 
 ## Policy
 
-- [ASL003 - AI Use Practice (rendered)](https://allstarlink.org/ai/)
-- [ASL003 - AI Use Practice (canonical)](https://github.com/AllStarLink/Standards/blob/main/ASL003-AI_Use_Practice.md)
+- [ASL001 - Contributing Policy](https://allstarlink.org/contributing/)
+- [ASL003 - AI Policy](https://allstarlink.org/ai/)
