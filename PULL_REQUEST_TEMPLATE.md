@@ -8,4 +8,4 @@ Replace this with your PR request information
 
 [ ] By opening this PR, you agree you have read and understood the [AllStarLink Contributing Policy](https://allstarlink.org/contributing/).
 
-Note: Please consider adding the `ai-assisted` tag to this PR to flag material AI contribuions as described at [AllStarLink AI Policy](https://allstarlink.org/ai/).
+Note: Please consider adding the `ai-assisted` tag to this PR to flag material AI contributions as described at [AllStarLink AI Policy](https://allstarlink.org/ai/).
