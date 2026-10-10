@@ -1,7 +1,0 @@
-{
-  "name": "AI disclosure (ASL003)",
-  "description": "Checks pull requests for the AI Use Disclosure and Contributor Attestation required by ASL003 (AI Use Practice), and labels AI-assisted pull requests.",
-  "iconName": "octicon-shield-check",
-  "categories": [],
-  "filePatterns": []
-}
