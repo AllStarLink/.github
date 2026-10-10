@@ -38,4 +38,4 @@ defend.
   non-public node or user information into prompts, code, or commits.
 - **Security issues.** Do not describe suspected vulnerabilities in public
   issues, pull requests, or commits. Tell the human to use the private
-  reporting channel in [SECURITY.md](SECURITY.md).
+  reporting channel in [SECURITY.md](https://github.com/AllStarLink/.github/blob/main/SECURITY.md).
